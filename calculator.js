@@ -22,16 +22,6 @@ document.addEventListener('DOMContentLoaded', function()
 })
 
 document.addEventListener('DOMContentLoaded', function() {
-    let DotButton = document.querySelector('#dot');
-    DotButton.addEventListener('click', digitOnClick)
-})
-
-document.addEventListener('DOMContentLoaded', function() {
-    let CancelButton = document.querySelector('#cancel');
-    CancelButton.addEventListener('click', digitOnClick)
-})
-
-document.addEventListener('DOMContentLoaded', function() {
     let EqualButton = document.querySelector('#equal');
     EqualButton.addEventListener('click', digitOnClick)
 })
