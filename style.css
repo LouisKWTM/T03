@@ -39,6 +39,10 @@
         margin: 0;
 }
 
+.operate.operateClick {
+        background-color: #858585;
+}
+
 .number {
         display: flex;
         flex-wrap: wrap;
