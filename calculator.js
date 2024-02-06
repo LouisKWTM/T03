@@ -1,6 +1,11 @@
 function digitOnClick() {
-    displayValue.textContent += this.textContent;
-    alert(displayValue);
+    if (displayValue.textContent == 0 ) {
+        displayValue.textContent = this.textContent;
+    }
+    else {
+        displayValue.textContent += this.textContent
+    }
+    //alert(displayValue);
 }
 
 function operateOnClick() {
