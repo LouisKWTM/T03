@@ -1,4 +1,5 @@
 let temp = 0
+let click = 0
 let evaluated = false
 let OperateBtns = document.getElementsByClassName('operate');
 
@@ -9,16 +10,19 @@ function removeColor() {
 }
 
 function digitOnClick() {
-    if (displayValue.textContent == 0
-        || (isNaN(Number(temp)) == true) && (typeof temp != 'number')
-        || ((displayValue.textContent != 0) && (evaluated == true))
-        ) {
+    alert(click)
+    if (displayValue.textContent == 0 || 
+        evaluated == true || 
+        (isNaN(Number(temp)) == true && click == 0))
+        {
         displayValue.textContent = this.textContent;
-        evaluated = false
+        evaluated = false;
+        click += 1
     }
     else {
         displayValue.textContent += this.textContent;
-this    }
+        click += 1
+    }
 }
 
 function operateOnClick() {
@@ -31,7 +35,10 @@ function operateOnClick() {
     else {
         temp += this.textContent;
     }
-    alert(temp);
+    click = 0
+    //displayValue.textContent = 0
+    //alert(isNaN(Number(temp)))
+    //alert(typeof temp);
 }
 
 function equalOnClick() {
@@ -39,11 +46,13 @@ function equalOnClick() {
     temp += displayValue.textContent
     displayValue.textContent = eval(temp)
     temp = 0
+    click = 0
     evaluated = true
 }
 
 function cancelOnClick() {
     removeColor()
+    click = 0
     displayValue.textContent = 0
     temp = 0;
     evaluated = false
