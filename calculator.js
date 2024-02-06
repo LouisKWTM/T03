@@ -9,7 +9,6 @@ function removeColor() {
 }
 
 function digitOnClick() {
-    //alert(isNaN(Number(temp)))
     if (displayValue.textContent == 0
         || (isNaN(Number(temp)) == true) && (typeof temp != 'number')
         || ((displayValue.textContent != 0) && (evaluated == true))
@@ -23,7 +22,6 @@ this    }
 }
 
 function operateOnClick() {
-    //alert(this.classList);
     removeColor()
     this.classList.add('operateClick')
     temp = displayValue.textContent
