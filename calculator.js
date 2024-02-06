@@ -13,7 +13,7 @@ function digitOnClick() {
     alert(click)
     if (displayValue.textContent == 0 || 
         evaluated == true || 
-        (isNaN(Number(temp)) == true && click == 0))
+        click == 0)
         {
         displayValue.textContent = this.textContent;
         evaluated = false;
