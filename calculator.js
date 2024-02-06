@@ -1,35 +1,59 @@
+let temp = 0
+let evaluated = false
+let OperateBtns = document.getElementsByClassName('operate');
+
+function removeColor() {
+    for ( let loop=0; loop<OperateBtns.length; loop++ ){
+        OperateBtns[loop].classList.remove("operateClick");
+    }
+}
+
 function digitOnClick() {
-    if (displayValue.textContent == 0 ) {
+    //alert(isNaN(Number(temp)))
+    if (displayValue.textContent == 0
+        || (isNaN(Number(temp)) == true) && (typeof temp != 'number')
+        || ((displayValue.textContent != 0) && (evaluated == true))
+        ) {
         displayValue.textContent = this.textContent;
+        evaluated = false
     }
     else {
-        displayValue.textContent += this.textContent
-    }
-    //alert(displayValue);
+        displayValue.textContent += this.textContent;
+this    }
 }
 
 function operateOnClick() {
     //alert(this.classList);
-    let OperateBtns = document.getElementsByClassName('operate');
-    for ( let loop=0; loop<OperateBtns.length; loop++ ){
-        OperateBtns[loop].classList.remove("operateClick")
-    };
-    this.classList.add("operateClick");
-    console.log(this);
+    removeColor()
+    this.classList.add('operateClick')
+    temp = displayValue.textContent
+    if (this.textContent === 'x') {
+        temp += '*';
+    }
+    else {
+        temp += this.textContent;
+    }
+    alert(temp);
 }
 
 function equalOnClick() {
-
+    removeColor()
+    temp += displayValue.textContent
+    displayValue.textContent = eval(temp)
+    temp = 0
+    evaluated = true
 }
 
 function cancelOnClick() {
-    document.querySelector("#displayValue").value == document.body.innerHTML.replace(document.querySelector("#displayValue").value, '123456');
+    removeColor()
+    displayValue.textContent = 0
+    temp = 0;
+    evaluated = false
 }
 
 document.addEventListener('DOMContentLoaded', function() 
 {
     let DigitBtns = document.getElementsByClassName('digit');
-
     for ( let i=0; i<DigitBtns.length; i++ ) {
         DigitBtns[i].addEventListener('click', digitOnClick);
     }
@@ -37,8 +61,6 @@ document.addEventListener('DOMContentLoaded', function()
 
 document.addEventListener('DOMContentLoaded', function() 
 {
-    let OperateBtns = document.getElementsByClassName('operate');
-
     for ( let i=0; i<OperateBtns.length; i++ ) {
         OperateBtns[i].addEventListener('click', operateOnClick);
     }
@@ -46,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function()
 
 document.addEventListener('DOMContentLoaded', function() {
     let EqualButton = document.querySelector('#equal');
-    EqualButton.addEventListener('click', digitOnClick)
+    EqualButton.addEventListener('click', equalOnClick)
 })
 
 document.addEventListener('DOMContentLoaded', function() {
