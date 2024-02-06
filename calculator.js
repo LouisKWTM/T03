@@ -4,7 +4,7 @@ let evaluated = false
 let OperateBtns = document.getElementsByClassName('operate');
 
 function removeColor() {
-    for ( let loop=0; loop<OperateBtns.length; loop++ ){
+    for (let loop=0; loop<OperateBtns.length; loop++){
         OperateBtns[loop].classList.remove("operateClick");
     }
 }
@@ -61,14 +61,14 @@ function cancelOnClick() {
 document.addEventListener('DOMContentLoaded', function() 
 {
     let DigitBtns = document.getElementsByClassName('digit');
-    for ( let i=0; i<DigitBtns.length; i++ ) {
+    for (let i=0; i<DigitBtns.length; i++) {
         DigitBtns[i].addEventListener('click', digitOnClick);
     }
 })
 
 document.addEventListener('DOMContentLoaded', function() 
 {
-    for ( let i=0; i<OperateBtns.length; i++ ) {
+    for (let i=0; i<OperateBtns.length; i++) {
         OperateBtns[i].addEventListener('click', operateOnClick);
     }
 })
