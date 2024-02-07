@@ -1,5 +1,6 @@
 let temp = 0
 let click = 0
+let operate = 0
 let evaluated = false
 let OperateBtns = document.getElementsByClassName('operate');
 
@@ -10,32 +11,44 @@ function removeColor() {
 }
 
 function digitOnClick() {
-    alert(click)
     if (displayValue.textContent == 0 || 
         evaluated == true || 
         click == 0)
         {
-        displayValue.textContent = this.textContent;
-        evaluated = false;
-        click += 1
+        displayValue.textContent = this.textContent
+        evaluated = false
+        click += 1;
     }
     else {
-        displayValue.textContent += this.textContent;
-        click += 1
+        displayValue.textContent += this.textContent
+        click += 1;
     }
 }
 
 function operateOnClick() {
     removeColor()
     this.classList.add('operateClick')
-    temp = displayValue.textContent
+    alert(temp)
+    operate += 1;
+    if (operate > 1) {
+        temp += displayValue.textContent
+        displayValue.textContent = eval(temp)
+        temp = displayValue.textContent
+        operate -= 1;
+    }
+    else {temp = displayValue.textContent}
+
     if (this.textContent === 'x') {
         temp += '*';
     }
     else {
         temp += this.textContent;
     }
-    click = 0
+
+    alert(isNaN(Number(temp)))
+    //alert(typeof temp)
+    click = 0;
+
     //displayValue.textContent = 0
     //alert(isNaN(Number(temp)))
     //alert(typeof temp);
@@ -47,15 +60,17 @@ function equalOnClick() {
     displayValue.textContent = eval(temp)
     temp = 0
     click = 0
-    evaluated = true
+    operate = 0
+    evaluated = true;
 }
 
 function cancelOnClick() {
     removeColor()
     click = 0
     displayValue.textContent = 0
-    temp = 0;
-    evaluated = false
+    temp = 0
+    operate = 0
+    evaluated = false;
 }
 
 document.addEventListener('DOMContentLoaded', function() 
