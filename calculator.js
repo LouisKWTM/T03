@@ -11,6 +11,12 @@ function removeColor() {
 }
 
 function digitOnClick() {
+    if (this.textContent == '.') {
+        if (String(displayValue.textContent).indexOf('.') != -1) {
+            return
+        }
+    }
+
     if (displayValue.textContent == 0 || 
         evaluated == true || 
         click == 0)
@@ -41,17 +47,9 @@ function operateOnClick() {
     if (this.textContent === 'x') {
         temp += '*';
     }
-    else {
-        temp += this.textContent;
-    }
+    else {temp += this.textContent;}
 
-    alert(isNaN(Number(temp)))
-    //alert(typeof temp)
     click = 0;
-
-    //displayValue.textContent = 0
-    //alert(isNaN(Number(temp)))
-    //alert(typeof temp);
 }
 
 function equalOnClick() {
