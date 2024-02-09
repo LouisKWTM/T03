@@ -34,7 +34,6 @@ function digitOnClick() {
 function operateOnClick() {
     removeColor()
     this.classList.add('operateClick')
-    alert(temp)
     operate += 1;
     if (operate > 1) {
         temp += displayValue.textContent
